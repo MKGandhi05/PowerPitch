@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #333;
+        }
+        .header img {
+            max-width: 300px;
+            height: auto;
+        }
+        .tagline {
+            color: #666;
+            font-size: 16px;
+            text-align: center;
+            margin-top: 10px;
+            letter-spacing: 2px;
+        }
+        .content {
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+        .verification-code {
+            font-size: 32px;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+            letter-spacing: 2px;
+            color: #333;
+        }
+        .expiry-text {
+            color: #666;
+            text-align: center;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .footer {
+            margin-top: 20px;
+            padding: 20px;
+            font-size: 11px;
+            color: #666;
+            line-height: 1.5;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div style="background-color: #666; color: white;" class="header">
+            <div style="font-size: 39px; font-weight: bold; color: white;" class="tagline">Power<span style="color: #e74c3c;">Pitch</span></div>
+            <div style="color: white;" class="tagline">THINK SPEAK SUCCEED</div>
+        </div>
+        <div class="content">
+            <h2>Verification code</h2>
+            <div class="verification-code">
+                {{ otp }}
+            </div>
+            <div class="expiry-text">
+                (This code will expire 10 minutes after it was sent.)
+            </div>
+            <div class="footer">
+                PowerPitch will never email you and ask you to disclose or verify your password, credit card, or banking account number. If you receive a suspicious email with a link to update your account information, do not click on the link. Instead, report the e-mail to PowerPitch for investigation.
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

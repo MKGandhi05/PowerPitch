@@ -1,0 +1,598 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerPitch - Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="{% static 'images/powerpitch-logo.png' %}">
+
+    <style>
+         {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Fixed navbar styles */
+        .navbar {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1030;
+            background-color: #2c3e50;
+        }
+
+        /* Add padding to body to prevent content from being hidden */
+        body {
+            padding-top: 70px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Headings */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Hero Section Typography */
+        .hero-text h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #2c3e50;
+            line-height: 1.2;
+        }
+
+        .hero-text h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: #34495e;
+        }
+
+        .hero-text p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            line-height: 1.7;
+        }
+
+        /* HOD Section Typography */
+        .hod-info h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .hod-info h2 span {
+            color: #e74c3c;
+        }
+
+        .hod-info h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .hod-info h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #34495e;
+        }
+
+        .hod-desc h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 400;
+            line-height: 1.6;
+            color: #2c3e50;
+            text-align: justify;
+        }
+
+        /* Organizers Section Typography */
+        .organizer-info h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .organizer-info p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: #7f8c8d;
+        }
+
+        /* Navigation Typography */
+        .navbar-brand {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        /* Responsive Typography Adjustments */
+        @media (max-width: 992px) {
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            .hero-text h2 {
+                font-size: 1.8rem;
+            }
+            .hero-text p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            .hero-text h2 {
+                font-size: 1.5rem;
+            }
+            .hero-text p {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 1.8rem;
+            }
+            .hero-text h2 {
+                font-size: 1.3rem;
+            }
+            .hero-text p {
+                font-size: 0.8rem;
+            }
+        }
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #e74c3c;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #e74c3c;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .navbar {
+            background-color: var(--primary-color);
+            padding: 1rem 2rem;
+        }
+
+        .navbar-brand {
+            color: white !important;
+            font-weight: 600;
+            font-size: 1.4rem;
+        }
+
+        .navbar-brand span {
+            color: var(--accent-color);
+        }
+
+        .custom-container {
+            max-width: 500px !important;
+            margin: 2rem auto;
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-label {
+            font-weight: 500;
+            color: #2c3e50;
+        }
+
+        .form-control {
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            padding: 0.5rem 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border: none;
+            padding: 0.5rem 2rem;
+            border-radius: 4px;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .btn-outline-primary {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            width: 100%;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .auth-button {
+            padding: 8px 25px;
+            text-decoration:none;
+            transition: all 0.3s ease;
+            color: white;
+            border: none;
+            font-weight: 500;
+        }
+
+        .auth-button:hover {
+
+            color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg" style="background-color: #2c3e50; padding: 0;">
+        <div class="container">
+            <div class="navbar-brand d-lg-none" style="display: flex; flex-direction: column; margin-left: -10px;">
+                <span style="color: white; font-size: 1.5rem;">PowerPitch</span>
+                <span style="color: #e74c3c; font-size: 1.5rem;">Think, Speak, Succeed</span>
+                <span class="navbar-text" style="color: white; font-size: 0.8rem;">Under the Department of Cyber Security</span>
+            </div>
+            <div class="navbar-brand d-none d-lg-flex flex-column">
+                <span class="navbar-brand">
+                    Power<span style="color: var(--accent-color);">Pitch</span>: Think, Speak, Succeed
+                </span>
+                <span class="navbar-text" style="color: white; font-size: 0.8rem;">Under the Department of Cyber Security</span>
+            </div>
+            <div class="auth-buttons ms-auto">
+                <a href="{% url 'home' %}" class="btn auth-button d-lg-none"><i class="fas fa-home" style="font-size: 1.5rem; color: white;"></i></a>
+                <a href="{% url 'home' %}" class="btn auth-button d-none d-lg-block">Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="custom-container">
+            <h2 class="text-center mb-4">Create Your Account</h2>
+            
+            <!-- User Type Selection -->
+            <div id="userTypeSection" {% if otp_sent or otp_verified %}style="display: none;"{% endif %}>
+                <div class="btn-group w-100 mb-4" role="group">
+                    <input type="radio" class="btn-check" name="userType" id="studentBtn" value="student" checked>
+                    <label class="btn btn-outline-primary" for="studentBtn">Student</label>
+                    
+                    <input type="radio" class="btn-check" name="userType" id="facultyBtn" value="faculty">
+                    <label class="btn btn-outline-primary" for="facultyBtn">Faculty</label>
+                </div>
+            </div>
+
+            <!-- Initial Form (Email Verification) -->
+            <form id="emailVerificationForm" method="post" class="needs-validation" novalidate 
+                  {% if otp_verified %}style="display: none;"{% endif %}>
+                {% csrf_token %}
+                <input type="hidden" name="action" value="get_otp">
+                
+                <div class="mb-3">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input type="text" class="form-control" id="firstName" name="firstName" 
+                           value="{{ first_name }}" required {% if otp_sent %}readonly{% endif %}>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" name="lastName" 
+                           value="{{ last_name }}" required {% if otp_sent %}readonly{% endif %}>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" name="email" 
+                           value="{{ email }}" required {% if otp_sent %}readonly{% endif %}>
+                </div>
+
+                {% if not otp_sent %}
+                <button type="submit" class="btn btn-primary w-100">Get OTP</button>
+                {% endif %}
+            </form>
+
+            <!-- OTP Verification Form -->
+            <!-- OTP Verification Form -->
+{% if otp_sent and not otp_verified %}
+<div class="mt-4">
+    <form method="post" class="needs-validation mb-3" novalidate>
+        {% csrf_token %}
+        <input type="hidden" name="action" value="verify_otp">
+        
+        <div class="mb-3">
+            <label for="otp" class="form-label">Enter OTP</label>
+            <input type="text" 
+                   class="form-control" 
+                   id="otp" 
+                   name="otp" 
+                   pattern="[0-9]{6}"
+                   maxlength="6"
+                   minlength="6"
+                   inputmode="numeric"
+                   autocomplete="one-time-code"
+                   required>
+            <div class="invalid-feedback">
+                Please enter the 6-digit OTP sent to your email.
+            </div>
+        </div>
+        
+        <button type="submit" class="btn btn-primary w-100">Verify OTP</button>
+    </form>
+
+    <!-- Separate Resend OTP Form -->
+    <div class="text-center">
+        <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="action" value="get_otp">
+            <input type="hidden" name="firstName" value="{{ first_name }}">
+            <input type="hidden" name="lastName" value="{{ last_name }}">
+            <input type="hidden" name="email" value="{{ email }}">
+            <button type="submit" class="btn btn-link">Resend OTP</button>
+        </form>
+    </div>
+</div>
+{% endif %}
+
+            <!-- Complete Registration Form -->
+            {% if otp_verified %}
+            <form method="post" class="needs-validation" novalidate>
+                {% csrf_token %}
+                <input type="hidden" name="action" value="signup">
+                <input type="hidden" id="selectedUserType" name="userType" value="">
+                
+                <!-- Display verified email info -->
+                <div class="alert alert-success mb-4">
+                    <strong>Email Verified:</strong> {{ email }}
+                </div>
+
+                <!-- Student Fields -->
+                <div id="studentFields">
+                    <div class="mb-3">
+                        <label for="gender" class="form-label">Gender</label>
+                        <select class="form-select" id="gender" name="gender" required>
+                            <option value="">Select Gender</option>
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                            <option value="O">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="branch" class="form-label">Branch</label>
+                        <select class="form-select" id="branch" name="branch" required>
+                            <option value="">Select Branch</option>
+                            <option value="CSE">Computer Science</option>
+                            <option value="ECE">Electronics</option>
+                            <option value="ME">Mechanical</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="rollNo" class="form-label">Roll Number</label>
+                        <input type="text" class="form-control" id="rollNo" name="rollNo" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="year" class="form-label">Year</label>
+                        <select class="form-select" id="year" name="year" required>
+                            <option value="">Select Year</option>
+                            <option value="1">1st Year</option>
+                            <option value="2">2nd Year</option>
+                            <option value="3">3rd Year</option>
+                            <option value="4">4th Year</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Faculty Fields -->
+                <div id="facultyFields">
+                    <div class="mb-3">
+                        <label for="libraryNo" class="form-label">Library Number</label>
+                        <input type="text" class="form-control" id="libraryNo" name="libraryNo" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="designation" class="form-label">Designation</label>
+                        <select class="form-select" id="designation" name="designation" required>
+                            <option value="">Select Designation</option>
+                            <option value="Asst.Proffesor">Assistant Professor</option>
+                            <option value="Professor">Professor</option>
+                            <option value="Associate">Associate Professor</option>
+                            <option value="programmer">Programmer</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Common Fields (Password) -->
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="password" name="password" 
+                               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                               title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                               required>
+                        <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="form-text">
+                        Password must be at least 8 characters long with numbers, uppercase and lowercase letters.
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="confirmPassword" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+                    <div class="invalid-feedback">
+                        Passwords do not match.
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+            </form>
+            {% endif %}
+
+            <!-- Login Link -->
+            <div class="text-center mt-3">
+                <p style=" font-size: 1.2rem; margin-bottom: 2rem;">Already have an account? <a href="{% url 'login' %}" style="text-decoration: none; font-weight: 500; color: #e74c3c;">Login</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap and Custom Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Form validation
+        (function () {
+            'use strict'
+            const forms = document.querySelectorAll('.needs-validation')
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+                    form.classList.add('was-validated')
+                })
+            })
+
+            // Password toggle
+            const togglePassword = document.querySelector('#togglePassword');
+            const password = document.querySelector('#password');
+
+            if (togglePassword && password) {
+                togglePassword.addEventListener('click', function () {
+                    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+                    password.setAttribute('type', type);
+                    this.querySelector('i').classList.toggle('fa-eye');
+                    this.querySelector('i').classList.toggle('fa-eye-slash');
+                });
+            }
+
+            // Password confirmation validation
+            const confirmPassword = document.querySelector('#confirmPassword');
+            if (confirmPassword && password) {
+                confirmPassword.addEventListener('input', function() {
+                    if (this.value !== password.value) {
+                        this.setCustomValidity('Passwords do not match');
+                    } else {
+                        this.setCustomValidity('');
+                    }
+                });
+
+                password.addEventListener('input', function() {
+                    if (confirmPassword.value !== '') {
+                        if (confirmPassword.value !== this.value) {
+                            confirmPassword.setCustomValidity('Passwords do not match');
+                        } else {
+                            confirmPassword.setCustomValidity('');
+                        }
+                    }
+                });
+            }
+
+            // User type toggle handler
+            const studentBtn = document.getElementById('studentBtn');
+            const facultyBtn = document.getElementById('facultyBtn');
+            const emailVerificationForm = document.getElementById('emailVerificationForm');
+            const studentFields = document.getElementById('studentFields');
+            const facultyFields = document.getElementById('facultyFields');
+            const selectedUserType = document.getElementById('selectedUserType');
+
+            function updateFormFields(isStudent) {
+                if (studentFields && facultyFields) {
+                    studentFields.style.display = isStudent ? 'block' : 'none';
+                    facultyFields.style.display = isStudent ? 'none' : 'block';
+                    
+                    // Update required attributes
+                    const studentInputs = studentFields.querySelectorAll('input, select');
+                    const facultyInputs = facultyFields.querySelectorAll('input, select');
+                    
+                    studentInputs.forEach(input => input.required = isStudent);
+                    facultyInputs.forEach(input => input.required = !isStudent);
+                }
+                
+                if (selectedUserType) {
+                    selectedUserType.value = isStudent ? 'student' : 'faculty';
+                }
+
+                if (emailVerificationForm) {
+                    emailVerificationForm.action = isStudent ? "{% url 'signup' %}" : "{% url 'faculty_signup' %}";
+                }
+            }
+
+            // Set initial state based on URL
+            const isFacultySignup = window.location.pathname.includes('faculty-signup');
+            if (isFacultySignup) {
+                facultyBtn.checked = true;
+                updateFormFields(false);
+            } else {
+                studentBtn.checked = true;
+                updateFormFields(true);
+            }
+
+            if (studentBtn && facultyBtn) {
+                studentBtn.addEventListener('change', function() {
+                    if (this.checked) {
+                        updateFormFields(true);
+                    }
+                });
+
+                facultyBtn.addEventListener('change', function() {
+                    if (this.checked) {
+                        updateFormFields(false);
+                    }
+                });
+            }
+        })()
+    </script>
+
+    {% if messages %}
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+        {% for message in messages %}
+        <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header {% if message.tags %}bg-{{ message.tags }}{% endif %}">
+                <strong class="me-auto">Message</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                {{ message }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</body>
+</html>

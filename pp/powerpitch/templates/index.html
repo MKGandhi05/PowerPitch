@@ -1,0 +1,1306 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerPitch - Think, Speak, Succeed</title>
+    <link rel="icon" type="image/png" href="{% static 'images/powerpitch-logo.png' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts Import -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        {
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Headings */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Hero Section Typography */
+        .hero-text h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: #2c3e50;
+            line-height: 1.2;
+        }
+
+        .hero-text h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: #34495e;
+        }
+
+        .hero-text p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            line-height: 1.7;
+        }
+
+        /* HOD Section Typography */
+        .hod-info h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .hod-info h2 span {
+            color: #e74c3c;
+        }
+
+        .hod-info h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .hod-info h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #34495e;
+        }
+
+        .hod-desc h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 400;
+            line-height: 1.6;
+            color: #2c3e50;
+            text-align: justify;
+        }
+
+        /* Organizers Section Typography */
+        .organizer-info h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .organizer-info p {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: #7f8c8d;
+        }
+
+        /* Navigation Typography */
+        .navbar-brand {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        /* Responsive Typography Adjustments */
+        @media (max-width: 992px) {
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            .hero-text h2 {
+                font-size: 1.8rem;
+            }
+            .hero-text p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            .hero-text h2 {
+                font-size: 1.5rem;
+            }
+            .hero-text p {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 1.8rem;
+            }
+            .hero-text h2 {
+                font-size: 1.3rem;
+            }
+            .hero-text p {
+                font-size: 0.8rem;
+            }
+        }
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #e74c3c;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: white;
+        }
+
+        .navbar {
+            background-color: var(--primary-color);
+            padding: 1rem 2rem;
+        }
+
+        .navbar-brand {
+            color: white !important;
+            font-weight: 600;
+            font-size: 1.4rem;
+        }
+
+        .navbar-brand span {
+            color: var(--accent-color);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border: none;
+            padding: 0.5rem 2rem;
+            border-radius: 4px;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .btn-outline-primary {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            width: 100%;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .auth-button {
+            border-radius: 20px;
+            padding: 8px 25px;
+            transition: all 0.3s ease;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            font-weight: 500;
+        }
+
+        .auth-button:hover {
+            background-color: #c0392b;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .auth-button.disabled {
+            background-color: #34495e;
+            color: white;
+            cursor: default;
+            pointer-events: none;
+            opacity: 0.8;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .auth-button.disabled:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        .hero-section {
+            padding-top: 4rem;
+            background-color: white;
+            border-bottom: 1px solid #eee;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .hero-logo {
+            flex: 0 0 400px;
+        }
+
+        .hero-logo img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero-text h1 span {
+            color: #e74c3c;
+        }
+
+        .hero-text h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 2rem 0;
+            }
+
+            .hero-content {
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 0 15px;
+            }
+
+            .hero-logo {
+                flex: 0 0 auto;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-text h2 {
+                font-size: 1.25rem;
+            }
+
+            .hero-text p {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section {
+                padding: 1.5rem 0;
+            }
+
+            .hero-content {
+                gap: 1rem;
+            }
+
+            .hero-logo {
+                max-width: 200px;
+            }
+
+            .container {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .organizers-grid {
+                padding: 0 10px;
+            }
+        }
+
+        .outreach-section {
+            padding: 2rem 0;
+            background-color: white;
+        }
+
+        .outreach-container {
+            padding: 1.2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            margin: 0.5rem;
+            height: 100%;
+            position: relative;
+            border: 2px solid #ddd;
+        }
+
+        .card-header {
+            background-color: #e74c3c;
+            color: white;
+            padding: 0.4rem 1.5rem;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            white-space: nowrap;
+        }
+
+        .nav-cards {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-card {
+            background-color: #e74c3c;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            color: white;
+        }
+
+        .carousel {
+            margin-top: 0.8rem;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 0.8rem;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+        }
+
+        .session-carousel .carousel-item img {
+            height: 300px;
+        }
+
+        .carousel-caption {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        /* Styles for main-title */
+        .main-title {
+            text-align: center;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .main-title::after {
+            content: '';
+            display: block;
+            width: 10%;
+            height: 4px;
+            background-color: #e74c3c;
+            margin: 0 auto;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Styles for organizers section */
+        .organizers-section {
+            background-color: white;
+            padding: 40px;
+            overflow-x: hidden;
+        }
+
+        .organizers-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 30px;
+            justify-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        .organizer-card {
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s ease;
+            width: 100%;
+        }
+
+        .organizer-image {
+            width: 100%;
+            max-width: 200px;
+            height: 300px;
+            border-radius: 50% / 30%;
+            overflow: hidden;
+            position: relative;
+            background-color: black;
+            margin: 0 auto;
+        }
+
+        .organizer-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 1;
+        }
+
+        .organizer-info {
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: white;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .organizer-info h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: white;
+        }
+
+        .linkedin-link {
+            color: white;
+            font-size: 20px;
+        }
+
+        .linkedin-link:hover {
+            color: #0077b5;
+        }
+
+        .organizer-card:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 1200px) {
+            .organizers-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 25px;
+            }
+
+            .organizer-image {
+                max-width: 180px;
+                height: 270px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .organizers-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                padding: 0 15px;
+            }
+
+            .organizer-image {
+                max-width: 160px;
+                height: 240px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .organizers-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+                padding: 0 10px;
+            }
+
+            .organizer-image {
+                max-width: 120px;
+                height: 180px;
+            }
+
+            .organizer-info h3 {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Styles for HOD section */
+        .hod-section {
+            background-color: white;
+            /* padding: 40px 0; */
+            margin-bottom: 20px;
+        }
+
+        .hod-container {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            gap: 40px;
+        }
+
+        .hod-info {
+            margin-top: 18px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            /* Stack content vertically */
+            align-items: flex-start;
+            /* Align content to the left */
+        }
+
+        .hod-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .hod-info h2 span {
+            color: #e74c3c;
+        }
+
+        .hod-info h3 span {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #e74c3c;
+        }
+
+        .hod-info h4 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .hod-info h4 span {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #e74c3c;
+        }
+
+        .hod-image {
+            flex: 0 0 300px;
+            border-radius: 20px 80px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .hod-image:hover {
+            transform: scale(1.1);
+        }
+
+        .hod-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .hod-desc {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 28%;
+        }
+
+        .hod-desc h4 {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #2c3e50;
+            text-align: justify;
+        }
+
+        @media (max-width: 992px) {
+            .hod-container {
+                gap: 30px;
+            }
+
+            .hod-image {
+                flex: 0 0 350px;
+            }
+
+            .hod-info h2 {
+                font-size: 2rem;
+            }
+
+            .hod-info h3 {
+                font-size: 1.5rem;
+            }
+
+            .hod-info h4 {
+                font-size: 1.3rem;
+            }
+
+            .hod-desc {
+                width: 35%;
+            }
+            .hod-desc h4 {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hod-container {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .hod-image {
+                flex: 0 0 auto;
+                width: 300px;
+                margin: 0 auto;
+            }
+
+            .hod-info h2 {
+                font-size: 1.8rem;
+            }
+
+            .hod-info h3 {
+                font-size: 1.3rem;
+            }
+
+            .hod-info h4 {
+                font-size: 1.2rem;
+            }
+
+            .hod-desc {
+                width: 100%;
+                margin: 20px 0;
+                order: 3;
+            }
+            .hod-desc h4 {
+                font-size: 1rem;
+                text-align: center;
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hod-image {
+                width: 250px;
+            }
+
+            .hod-info h2 {
+                font-size: 1.5rem;
+            }
+
+            .hod-info h3 {
+                font-size: 1.2rem;
+            }
+
+            .hod-info h4 {
+                font-size: 1.1rem;
+            }
+
+            .hod-desc {
+                margin: 15px 0;
+            }
+            .hod-desc h4 {
+                font-size: 0.9rem;
+                padding: 0 10px;
+            }
+        }
+
+        /* Personalized Greeting Styles */
+        .alert-success {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            color: #155724;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .alert-success h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: #155724;
+            margin-bottom: 10px;
+        }
+
+        .alert-success p {
+            font-family: 'Inter', sans-serif;
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .alert-success {
+                padding: 10px;
+            }
+            .alert-success h4 {
+                font-size: 1.2rem;
+            }
+            .alert-success p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <!-- Navigation -->
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #2c3e50; padding: 0;">
+        <div class="container">
+            <div class="navbar-brand d-lg-none" style="display: flex; flex-direction: column; margin-left: -10px;">
+                <span style="color: white; font-size: 1.5rem;">PowerPitch</span>
+                <span style="color: #e74c3c; font-size: 1.5rem;">Think, Speak, Succeed</span>
+                <span class="navbar-text" style="color: white; font-size: 0.8rem;">Under the Department of Cyber Security</span>
+            </div>
+            <div class="navbar-brand d-none d-lg-flex flex-column">
+                <span class="navbar-brand">
+                    Power<span style="color: var(--accent-color);">Pitch</span>: Think, Speak, Succeed
+                </span>
+                <span class="navbar-text" style="color: white; font-size: 0.7rem;">Under the Department of Cyber Security</span>
+            </div>
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Content -->
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    
+                    <li class="nav-item">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#ccpp-organizers">CCPP Organizers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#past-sessions">Past Sessions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#past-outreaches">Past Outreaches</a>
+                        </li>
+                        <a class="nav-link" href="{% url 'login' %}">Login/SignUp</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-logo">
+                    <img src="{% static 'images/powerpitch-logo.png' %}" alt="PowerPitch Logo">
+                </div>
+                <div class="hero-text">
+                    <h1>Power<span>Pitch</span></h1>
+                    <h2>Think, Speak, Succeed</h2>
+                    <p>PowerPitch is an initiative taken by the Department of Cyber Security under CYBER CLUB to improve
+                        the communication skills of students. Through this program, we aim to enhance public speaking
+                        abilities, build confidence, and develop essential presentation skills that are crucial in
+                        today's professional world.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1 class="main-title">Head of the Department</h1>
+    <div class="hod-section">
+        <div class="container">
+            <div class="hod-container">
+                <div class="hod-desc">
+                    <h4>We are deeply grateful to our HOD for her unwavering support, guidance, and encouragement, which
+                        inspired us to excel at every step. Her leadership and belief in our abilities were instrumental
+                        in making our efforts successful. </h4>
+                </div>
+                <div class="hod-image">
+                    <img src="{% static 'images/hod.jpg' %}" alt="Prof G.Uma Maheshwari">
+                </div>
+                <div class="hod-info">
+                    <h2>Prof G.Uma <span>Maheshwari</span></h2>
+                    <h3>Head of the <span>Department</span></h3>
+                    <h4>Cyber <span>Security</span></h4>
+                    <h4>SICET</h4>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <h1 id="ccpp-organizers" class="main-title">CCPP Organizers</h1>
+    <!-- Organizers Section -->
+    <div class="organizers-section">
+        <div class="container">
+            <div class="organizers-grid">
+                <!-- Lekha -->
+                <div class="organizer-card">
+                    <div class="organizer-image">
+                        <img src="{% static 'images/lekha.jpg' %}" alt="Lekha">
+                        <div class="organizer-info">
+                            <h3>Lekha</h3>
+                            <a href="https://www.linkedin.com/in/mucharla-sreelekha?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B2O0VZmvwTJOt5mBc1YfLOw%3D%3D" target="_blank" class="linkedin-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Teju -->
+                <div class="organizer-card">
+                    <div class="organizer-image">
+                        <img src="{% static 'images/teju.jpg' %}" alt="Teju">
+                        <div class="organizer-info">
+                            <h3>Teju</h3>
+                            <a href="https://www.linkedin.com/in/emmadi-tejasree-621280302?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BXtV65Z9%2BTuypM4T%2Bky0VqQ%3D%3D" target="_blank" class="linkedin-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mk Gandhi -->
+                <div class="organizer-card">
+                    <div class="organizer-image">
+                        <img src="{% static 'images/mani.jpg' %}" alt="Mk Gandhi">
+                        <div class="organizer-info">
+                            <h3>Mk Gandhi</h3>
+                            <a href="https://www.linkedin.com/in/medishetty-manikanta-gandhi?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BtKEMRJfsSDCo1MKf8Jq38Q%3D%3D" target="_blank"
+                                class="linkedin-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tanuj -->
+                <div class="organizer-card">
+                    <div class="organizer-image">
+                        <img src="{% static 'images/tanuj.jpg' %}" alt="Tanuj">
+                        <div class="organizer-info">
+                            <h3>Tanuj</h3>
+                            <a href="https://www.linkedin.com/in/budumani-tanuj-0ab145339?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BrePZqQHBSsqScspKpNLLCw%3D%3D" target="_blank" class="linkedin-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Abhinay -->
+                <div class="organizer-card">
+                    <div class="organizer-image">
+                        <img src="{% static 'images/abhinay.jpg' %}" alt="Abhinay">
+                        <div class="organizer-info">
+                            <h3>Abhinay</h3>
+                            <a href="https://www.linkedin.com/in/macha-abhinay-85b52b291?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BoY3fHabxTR6eQwHu7ezUZQ%3D%3D" target="_blank" class="linkedin-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="outreach-section">
+        <div class="container">
+            <!-- Past Sessions Section -->
+            <h1 id="past-sessions" class="main-title">Our Past Sessions</h1>
+            <div class="row mb-5">
+                <!-- Week 1 -->
+                <div class="col-md-3">
+                    <div class="outreach-container">
+                        <div class="card-header">CCPP Week-1</div>
+                        <div id="week1Carousel" class="carousel slide session-carousel" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="{% static 'images/week1/img1.JPG' %}" class="d-block w-100"
+                                        alt="Week 1 Session">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{% static 'images/week1/img2.jpg' %}" class="d-block w-100"
+                                        alt="Week 1 Session">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{% static 'images/week1/img3.jpg' %}" class="d-block w-100"
+                                        alt="Week 1 Session">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{% static 'images/week1/img4.JPG' %}" class="d-block w-100"
+                                        alt="Week 1 Session">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{% static 'images/week1/img5.jpg' %}" class="d-block w-100"
+                                        alt="Week 1 Session">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{% static 'images/week1/img6.JPG' %}" class="d-block w-100"
+                                        alt="Week 1 Session">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{% static 'images/week1/img7.jpg' %}" class="d-block w-100"
+                                        alt="Week 1 Session">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#week1Carousel"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#week1Carousel"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Week 2 -->
+                <div class="col-md-3">
+                    <div class="outreach-container">
+                        <div class="card-header">CCPP Week-2</div>
+                        <div id="week2Carousel" class="carousel slide session-carousel" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="{% static 'images/week2/img1.jpg' %}" class="d-block w-100"
+                                        alt="Week 2 Session">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{% static 'images/week2/img2.jpg' %}" class="d-block w-100"
+                                        alt="Week 2 Session">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{% static 'images/week2/img3.jpg' %}" class="d-block w-100"
+                                        alt="Week 2 Session">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{% static 'images/week2/img4.jpg' %}" class="d-block w-100"
+                                        alt="Week 2 Session">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#week2Carousel"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#week2Carousel"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Week 3 -->
+                <div class="col-md-3">
+                    <div class="outreach-container">
+                        <div class="card-header">CCPP Week-3</div>
+                        <div id="week3Carousel" class="carousel slide session-carousel" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="{% static 'images/week3/img1.jpg' %}" class="d-block w-100"
+                                        alt="Week 3 Session">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{% static 'images/week3/img2.JPG' %}" class="d-block w-100"
+                                        alt="Week 3 Session">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{% static 'images/week3/img3.jpg' %}" class="d-block w-100"
+                                        alt="Week 3 Session">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{% static 'images/week3/img4.JPG' %}" class="d-block w-100"
+                                        alt="Week 3 Session">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{% static 'images/week3/img5.JPG' %}" class="d-block w-100"
+                                        alt="Week 3 Session">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#week3Carousel"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#week3Carousel"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Past Outreaches Section -->
+            <h1 id="past-outreaches" class="main-title">Our Past Outreaches</h1>
+            <div class="row">
+                <!-- October Outreach -->
+                <div class="col-md-4">
+                    <div class="outreach-container">
+                        <div class="card-header">October Outreach</div>
+                        <div id="octoberCarousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="{% static 'images/october/img1.jpg' %}" class="d-block w-100"
+                                        alt="October Event 1">
+                                    <div class="carousel-caption">
+                                        <h5>Leadership Workshop</h5>
+                                        <p>Students learning about effective leadership strategies</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{% static 'images/october/img2.jpg' %}" class="d-block w-100"
+                                        alt="October Event 2">
+                                    <div class="carousel-caption">
+                                        <h5>Team Building</h5>
+                                        <p>Interactive session on team collaboration</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{% static 'images/october/img3.jpg' %}" class="d-block w-100"
+                                        alt="October Event 3">
+                                    <div class="carousel-caption">
+                                        <h5>Public Speaking</h5>
+                                        <p>Students practicing public speaking skills</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{% static 'images/october/img4.jpg' %}" class="d-block w-100"
+                                        alt="October Event 3">
+                                    <div class="carousel-caption">
+                                        <h5>Public Speaking</h5>
+                                        <p>Students practicing public speaking skills</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{% static 'images/october/img5.jpg' %}" class="d-block w-100"
+                                        alt="October Event 3">
+                                    <div class="carousel-caption">
+                                        <h5>Public Speaking</h5>
+                                        <p>Students practicing public speaking skills</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{% static 'images/october/img6.JPG' %}" class="d-block w-100"
+                                        alt="October Event 3">
+                                    <div class="carousel-caption">
+                                        <h5>Public Speaking</h5>
+                                        <p>Students practicing public speaking skills</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{% static 'images/october/img7.jpg' %}" class="d-block w-100"
+                                        alt="October Event 3">
+                                    <div class="carousel-caption">
+                                        <h5>Public Speaking</h5>
+                                        <p>Students practicing public speaking skills</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{% static 'images/october/img8.jpg' %}" class="d-block w-100"
+                                        alt="October Event 3">
+                                    <div class="carousel-caption">
+                                        <h5>Public Speaking</h5>
+                                        <p>Students practicing public speaking skills</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{% static 'images/october/img9.jpg' %}" class="d-block w-100"
+                                        alt="October Event 3">
+                                    <div class="carousel-caption">
+                                        <h5>Public Speaking</h5>
+                                        <p>Students practicing public speaking skills</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{% static 'images/october/img10.jpg' %}" class="d-block w-100"
+                                        alt="October Event 3">
+                                    <div class="carousel-caption">
+                                        <h5>Public Speaking</h5>
+                                        <p>Students practicing public speaking skills</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#octoberCarousel"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#octoberCarousel"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- November Outreach -->
+                <div class="col-md-4">
+                    <div class="outreach-container">
+                        <div class="card-header">November Outreach</div>
+                        <div id="novemberCarousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="{% static 'images/november/img1.jpg' %}" class="d-block w-100"
+                                        alt="November Event 1">
+                                    <div class="carousel-caption">
+                                        <h5>Innovation Summit</h5>
+                                        <p>Exploring creative solutions to modern challenges</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{% static 'images/november/img2.jpg' %}" class="d-block w-100"
+                                        alt="November Event 2">
+                                    <div class="carousel-caption">
+                                        <h5>Tech Talks</h5>
+                                        <p>Industry experts sharing their experiences</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="{% static 'images/november/img3.jpg' %}" class="d-block w-100"
+                                        alt="November Event 3">
+                                    <div class="carousel-caption">
+                                        <h5>Networking Event</h5>
+                                        <p>Building professional connections</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item active">
+                                    <img src="{% static 'images/november/img4.jpg' %}" class="d-block w-100"
+                                        alt="November Event 1">
+                                    <div class="carousel-caption">
+                                        <h5>Innovation Summit</h5>
+                                        <p>Exploring creative solutions to modern challenges</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item active">
+                                    <img src="{% static 'images/november/img5.jpg' %}" class="d-block w-100"
+                                        alt="November Event 1">
+                                    <div class="carousel-caption">
+                                        <h5>Innovation Summit</h5>
+                                        <p>Exploring creative solutions to modern challenges</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#novemberCarousel"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#novemberCarousel"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Initialize all carousels with custom interval
+        document.addEventListener('DOMContentLoaded', function () {
+            // Past Sessions Carousels
+            new bootstrap.Carousel(document.querySelector('#week1Carousel'), {
+                interval: 3000
+            });
+            new bootstrap.Carousel(document.querySelector('#week2Carousel'), {
+                interval: 3000
+            });
+            new bootstrap.Carousel(document.querySelector('#week3Carousel'), {
+                interval: 3000
+            });
+
+            // Outreach Carousels
+            new bootstrap.Carousel(document.querySelector('#octoberCarousel'), {
+                interval: 3000
+            });
+            new bootstrap.Carousel(document.querySelector('#novemberCarousel'), {
+                interval: 3000
+            });
+        });
+
+        // Smooth scroll to CCPP Organizers section
+        document.addEventListener('DOMContentLoaded', function() {
+            const ccppOrganizersLink = document.querySelector('a[href="#ccpp-organizers"]');
+            if (ccppOrganizersLink) {
+                ccppOrganizersLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetSection = document.getElementById('ccpp-organizers');
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'start' 
+                        });
+                    }
+                });
+            }
+        });
+
+        // Smooth scroll to Past Sessions section
+        document.addEventListener('DOMContentLoaded', function() {
+            const pastSessionsLink = document.querySelector('a[href="#past-sessions"]');
+            if (pastSessionsLink) {
+                pastSessionsLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetSection = document.getElementById('past-sessions');
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'start' 
+                        });
+                    }
+                });
+            }
+
+            // Smooth scroll to Past Outreaches section
+            const pastOutreachesLink = document.querySelector('a[href="#past-outreaches"]');
+            if (pastOutreachesLink) {
+                pastOutreachesLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetSection = document.getElementById('past-outreaches');
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'start' 
+                        });
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
